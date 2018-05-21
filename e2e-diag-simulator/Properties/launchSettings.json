@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "e2e-diag-simulator": {
+      "commandName": "Project",
+      "commandLineArgs": "--c \"HostName=e2e-diag-iothub.azure-devices.cn;DeviceId=e2e-device;SharedAccessKey=I1u99ev44d0yl4sWLc85DKkS99M5E24OOv4nomkd3Y4=\""
+    }
+  }
+}
