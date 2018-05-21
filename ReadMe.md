@@ -1,4 +1,4 @@
-# Command Line Tool to send messages with diagnostic information to Azure IoT Hub for Azure IoTHub
+# Command Line Tool to send messages with diagnostic information to Azure IoT Hub
 
 The e2e-diag-simulator offers command line to help you send messages with diagnostic information to Azure IoT Hub.
 
