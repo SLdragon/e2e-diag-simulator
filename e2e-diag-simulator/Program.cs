@@ -25,7 +25,7 @@ namespace e2e_diag_simulator
 
                 if (result is Parsed<Options>)
                 {
-                    var options =  ((Parsed<Options>)result).Value;
+                    var options = ((Parsed<Options>)result).Value;
 
                     TransportType protocol = TransportType.Mqtt;
 
@@ -33,11 +33,11 @@ namespace e2e_diag_simulator
                     {
                         protocol = TransportType.Mqtt;
                     }
-                    else if (options.Protocol =="amqp")
+                    else if (options.Protocol == "amqp")
                     {
                         protocol = TransportType.Amqp;
                     }
-                    
+
                     DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(options.ConnectionString, protocol);
                     if (deviceClient == null)
                     {
@@ -45,7 +45,14 @@ namespace e2e_diag_simulator
                     }
                     else
                     {
-                        deviceClient.DiagnosticSamplingPercentage = 100;
+                        if (options.SamplingRate == -1)
+                        {
+                            //deviceClient.EnableE2EDiagnosticWithCloudSetting().Wait();
+                        }
+                        else
+                        {
+                            deviceClient.DiagnosticSamplingPercentage = options.SamplingRate;
+                        }
                         SendEvent(deviceClient).Wait();
                     }
 
